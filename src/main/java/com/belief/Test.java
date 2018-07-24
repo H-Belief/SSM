@@ -20,7 +20,7 @@ public class Test {
         Map map = new HashMap();
 
         for (int i = 0; i < list.size(); i++) {
-            map.put(list.get(i),strings[i].equals("a")?"aaaa":strings[i].equals("b")?"bbbb":strings[i].equals("c")?"cccc":strings[i].equals("d")?"dddd":"eeee");
+            map.put(list.get(i),strings[i]);
         }
 
         System.out.println("题目+答案： " + map.toString());
