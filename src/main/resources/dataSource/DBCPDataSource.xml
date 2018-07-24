@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- 配置数据库相关参数properties的属性：${url} -->
+    <context:property-placeholder location="classpath:dataSource/jdbc.DBCP.properties"/>
+
+    <!-- 数据库连接池 -->
+    <bean id="dataSource" class="com.belief.Utils.config.DBCP.CustomDataSource">
+        <property name="username" value="${connection.username}"></property>
+        <property name="password" value="${connection.password}"></property>
+        <property name="url" value="${connection.url}"></property>
+        <property name="driverClassName" value="${connection.driverClassName}"></property>
+        <!-- <property name="initialSize" value="${connection.initialSize}"></property> -->
+        <property name="maxActive" value="${connection.maxActive}"></property>
+        <property name="maxIdle" value="${connection.maxIdle}"></property>
+        <property name="minIdle" value="${connection.minIdle}"></property>
+        <property name="maxWait" value="${connection.maxWait}"></property>
+        <property name="removeAbandoned" value="${connection.removeAbandoned}"></property>
+        <property name="removeAbandonedTimeout" value="${connection.removeAbandonedTimeout}"></property>
+        <property name="logAbandoned" value="${connection.logAbandoned}"></property>
+    </bean>
+
+</beans>
