@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 
 import javax.annotation.Resource;
@@ -48,6 +49,18 @@ public class UserController {
     }
 
 
+    @RequestMapping(value = "/user")
+    @ResponseBody
+    public User selectUser(Integer id) {
+
+
+        User user = this.userService.selectUser(id);
+
+        return user;
+    }
+
+
+
     @RequestMapping("/getProperties")
     public void seleceUser(){
 
@@ -64,6 +77,30 @@ public class UserController {
             System.out.println(e.getMessage());
             return 0;
         }
+    }
+
+
+    public static void main(String[] args) {
+        String arr = "12,60,59,43,43,43,43,66";
+        String brr = "B,C,A,A,A,A,A,E";
+        String[] asplit = arr.split(",");
+        String[] bsplit = brr.split(",");
+        String a = "";
+        StringBuilder sba = new StringBuilder();
+        StringBuilder sbb = new StringBuilder();
+        for (int i = 0; i < asplit.length; i++) {
+            String ans = asplit[i];
+            String choose = bsplit[i];
+            if (a.equals(ans)) {
+                continue;
+            } else {
+                sba.append(ans);
+                sbb.append(choose);
+                a = ans;
+            }
+        }
+        System.out.println(sba.toString());
+        System.out.println(sbb.toString());
     }
 
 }
