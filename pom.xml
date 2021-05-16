@@ -153,6 +153,12 @@
       <version>3.6</version>
     </dependency>
 
+    <!-- jenkins -->
+    <dependency>
+      <groupId>com.offbytwo.jenkins</groupId>
+      <artifactId>jenkins-client</artifactId>
+      <version>0.3.7</version>
+    </dependency>
   </dependencies>
 
   <build>
